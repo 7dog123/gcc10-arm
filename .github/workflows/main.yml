@@ -45,8 +45,8 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          wget https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz
-          cd freetype-2.10.1.tar.gz
+          wget -q https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz
+          tar -xf freetype-2.10.1.tar.gz
 
       - name: Run a multi-line script
         run: |

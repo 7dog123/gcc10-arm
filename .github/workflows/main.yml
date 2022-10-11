@@ -32,7 +32,7 @@ jobs:
           sudo apt-get -y install autoconf automake autopoint autotools-dev bsdmainutils \
           build-essential debhelper dh-autoreconf \
           dh-strip-nondeterminism dpkg-dev dwz file g++ g++-9 gettext \
-          gettext-base groff-base intltool-debian libarchive-zip-perl 
+          gettext-base groff-base intltool-debian libarchive-zip-perl \
           libcroco3 libdebhelper-perl libdpkg-perl \
           libfile-stripnondeterminism-perl libglib2.0-0 libjs-jquery \
           libmagic-mgc libmagic1 libpipeline1 libpng-dev \

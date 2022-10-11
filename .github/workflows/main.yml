@@ -54,6 +54,6 @@ jobs:
           ./configure --build=x86_64-linux-gnu --host=arm-linux-gnueabihf --prefix=/usr --includedir=\${prefix}/include \
           --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var \
           --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode \
-          --disable-dependency-tracking --without-bzip2 --without-harfbuzz
+          --disable-dependency-tracking --without-bzip2 --without-harfbuzz --with-zlib=no --with-png=no
           make
           

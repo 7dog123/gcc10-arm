@@ -27,8 +27,33 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: sudo apt-get update && sudo apt-get -y install gcc-10-arm-linux-gnueabihf
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install autoconf automake autopoint autotools-dev bsdmainutils \
+          build-essential debhelper dh-autoreconf \
+          dh-strip-nondeterminism dpkg-dev dwz file g++ g++-9 gettext \
+          gettext-base groff-base intltool-debian libarchive-zip-perl 
+          libcroco3 libdebhelper-perl libdpkg-perl \
+          libfile-stripnondeterminism-perl libglib2.0-0 libjs-jquery \
+          libmagic-mgc libmagic1 libpipeline1 libpng-dev \
+          libpthread-stubs0-dev libsigsegv2 libstdc++-9-dev \
+          libsub-override-perl libtool libuchardet0 libx11-dev \
+          libxau-dev libxcb1-dev libxdmcp-dev m4 man-db pkg-config \
+          po-debconf x11proto-core-dev x11proto-dev xorg-sgml-doctools \
+          xtrans-dev xz-utils zlib1g-dev crossbuild-essential-arm64 \
+          crossbuild-essential-armhf
+
       - name: Run a multi-line script
         run: |
-          arm-linux-gnueabihf-gcc-10 -v
-          echo test, and deploy your project.
+          wget https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.gz
+          cd freetype-2.10.1.tar.gz
+
+      - name: Run a multi-line script
+        run: |
+          cd freetype-2.10.1
+          ./configure --build=x86_64-linux-gnu --host=arm-linux-gnueabihf --prefix=/usr --includedir=\${prefix}/include \
+          --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var \
+          --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode \
+          --disable-dependency-tracking --without-bzip2 --without-harfbuzz
+          make
+          
